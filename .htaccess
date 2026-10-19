@@ -1,0 +1,20 @@
+Options -Indexes -MultiViews
+
+
+# URL propres : /inscription, /conditions et /admin (les .php redirigent vers la version courte)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{THE_REQUEST} \s/+(.*/)?(inscription|admin|conditions)\.php[\s?] [NC]
+  RewriteRule ^(inscription|admin|conditions)\.php$ /%1%2 [R=301,L]
+  RewriteCond %{REQUEST_URI} ^(.*/)(inscription|admin|conditions)/$
+  RewriteRule ^ %1%2 [R=301,L]
+  RewriteRule ^(inscription|admin|conditions)$ $1.php [L,QSA]
+</IfModule>
+AddType image/webp .webp
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/css "access plus 1 hour"
+  ExpiresByType application/javascript "access plus 1 hour"
+</IfModule>
