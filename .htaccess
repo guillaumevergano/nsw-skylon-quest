@@ -11,10 +11,19 @@ Options -Indexes -MultiViews
   RewriteRule ^(inscription|admin|conditions)$ $1.php [L,QSA]
 </IfModule>
 AddType image/webp .webp
+# Cache : les pages PHP ne sont jamais mises en cache (no-store côté PHP).
+# CSS et JS sont appelés avec ?v=<date de modification> (skylon_asset) : nouvelle URL à chaque modif.
+# Images et vidéos : le navigateur revérifie à chaque visite (réponse 304 légère si rien n'a changé),
+# pour qu'un fichier remplacé sous le même nom s'affiche tout de suite chez le client.
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType image/webp "access plus 30 days"
-  ExpiresByType image/svg+xml "access plus 30 days"
-  ExpiresByType text/css "access plus 1 hour"
-  ExpiresByType application/javascript "access plus 1 hour"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType text/javascript "access plus 30 days"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|jpe?g|png|svg|gif|mp4|webm|mov)$">
+    Header set Cache-Control "no-cache"
+    Header unset Expires
+  </FilesMatch>
 </IfModule>

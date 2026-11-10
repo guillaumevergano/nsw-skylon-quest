@@ -78,8 +78,8 @@ $inv = static fn(string $k) => isset($errors[$k]) ? ' aria-invalid="true" aria-d
         <img src="assets/img/paire.webp" alt="Nike Skylon 11, coloris rouge et argent" width="1800" height="813">
       </figure>
       <div class="panel panel--text">
-        <p><strong>Skylon Quest : la chasse au trésor signée Eight Lines x NSW</strong><br>
-        À l’occasion du lancement de la Skylon 11, NSW s’associe à Eight Lines pour vous embarquer dans une chasse au trésor à travers Paris, inspirée par les années 2010. Cinq challenges dans la ville, huit équipes en compétition, chacune menée par un créatif. Une seule crew gagnante, avec à la clé une année de Navigo Pass pour chaque membre de l’équipe. Inscrivez-vous, et préparez-vous à parcourir la ville.</p>
+        <h2 class="panel--text__title">Skylon Quest : la chasse au trésor signée Eight Lines x Nike Sportswear</h2>
+        <p>À l’occasion du lancement de la Skylon 11, Nike Sportswear s’associe à Eight Lines pour t’embarquer dans une chasse au trésor à travers Paris, inspirée des années 2010. Cinq challenges dans la ville, huit équipes en compétition, toutes menées par des créateurs de contenus. Une seule team gagnante, avec à la clé une année de Pass Navigo pour chaque membre de l’équipe. Inscris-toi et prépare-toi à parcourir la ville&nbsp;!</p>
       </div>
     </div>
 
